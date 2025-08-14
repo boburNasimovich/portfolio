@@ -1,0 +1,26 @@
+footer {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footerContainer {
+    text-align: center;
+
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+}
+
+.social-link {}
+
+.end {
+    font-family: 'Courier New', Courier, monospace;
+    padding-bottom: 40px;
+}

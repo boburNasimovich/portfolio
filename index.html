@@ -1,0 +1,438 @@
+<html lang="uz">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio sayt</title>
+    <meta name="description" content="Shaxsiy portfolio — ism, aloqa va joylashuv." />
+    <!-- Open Graph (sotsial tarmoqlarda chiroyli ko'rinish uchun) -->
+    <meta property="og:title" content="Mening Shaxsiy Saytim" />
+    <meta property="og:description" content="Shaxsiy portfolio — ism, aloqa va joylashuv." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com" />
+    <meta property="og:image" content="https://example.com/preview.jpg" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg: #0f0f10;
+            /* deyarli qora */
+            --muted: #1a1a1c;
+            --text: #f4f4f5;
+            /* oq */
+            --sub: #b5b5b8;
+            /* kulrang */
+            --accent: #ffffff;
+            /* oq aksent */
+            --ring: rgba(255, 255, 255, .25);
+            --radius: 20px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 800px at 80% -10%, #1a1a1c 0%, #0f0f10 60%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--text);
+            text-decoration: none
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        /* Wrapper */
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 24px
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: saturate(1.2) blur(6px);
+            background: linear-gradient(180deg, rgba(15, 15, 16, .85), rgba(15, 15, 16, .55));
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 14px 24px
+        }
+
+        .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .title {
+            display: flex;
+            flex-direction: column
+        }
+
+        .name {
+            font-size: clamp(18px, 3vw, 22px);
+            font-weight: 700
+        }
+
+        .tag {
+            font-size: 14px;
+            color: var(--sub)
+        }
+
+        .spacer {
+            flex: 1
+        }
+
+        .contact-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: var(--muted);
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: var(--shadow);
+            transition: transform .25s ease, .25s ease, box-shadow .25s ease;
+        }
+
+        .contact-btn:focus-visible {
+            outline: 3px solid var(--ring);
+            outline-offset: 2px
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px)
+        }
+
+        .contact-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 6px rgba(255, 255, 255, .08)
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 24px;
+            align-items: center;
+            padding: 40px 24px 8px
+        }
+
+        .hero-card {
+            background: linear-gradient(145deg, #111113, #0b0b0c);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow)
+        }
+
+        .hero-card img {
+            aspect-ratio: 16/10;
+            object-fit: cover
+        }
+
+        .hero-body {
+            padding: 24px
+        }
+
+        .hero h1 {
+            margin: 0 0 10px;
+            font-size: clamp(28px, 4.5vw, 42px)
+        }
+
+        .hero p {
+            margin: 0;
+            color: var(--sub)
+        }
+
+        /* Section */
+        section {
+            padding: 40px 24px
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 18px
+        }
+
+        .card {
+            grid-column: span 6;
+            background: linear-gradient(160deg, #111113, #0c0c0d);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow)
+        }
+
+        .card h3 {
+            margin: 0 0 6px
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--sub)
+        }
+
+        @media (max-width: 840px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                grid-column: span 12
+            }
+        }
+
+        /* Link animatsiyalari */
+        .link-underline {
+            position: relative;
+            display: inline-block
+        }
+
+        .link-underline::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .25s ease
+        }
+
+        .link-underline:hover::after {
+            transform: scaleX(1)
+        }
+
+        .contact-list a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, .02);
+            transition: transform .2s ease, .2s ease
+        }
+
+        .contact-list a:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, .05)
+        }
+
+        .contact-list svg {
+            flex: 0 0 20px
+        }
+
+        /* Drawer (kontaktlar) */
+        .drawer {
+            position: fixed;
+            inset: 0;
+            display: none;
+        }
+
+        .drawer[open] {
+            display: block
+        }
+
+        .drawer-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .6)
+        }
+
+        .drawer-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: min(420px, 100%);
+            background: #111112;
+            border-left: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .drawer-title {
+            font-weight: 700
+        }
+
+        .drawer-body {
+            padding: 18px;
+            overflow: auto
+        }
+
+        .icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            background: var(--muted)
+        }
+
+        /* Kichik mayin ko'tarilish animatsiyasi */
+        .reveal {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* Harakatni kamaytirishni hurmat qilish */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                scroll-behavior: auto !important
+            }
+
+            .contact-btn,
+            .contact-list a,
+            .reveal {
+                transition: none
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-inner container" role="navigation" aria-label="Sahifa bosh qismi">
+            <a class="avatar" href="#" aria-label="Bosh sahifa">
+                <!-- O'zingizning profil rasmingiz URLini qo'ying -->
+                <img src="img/avatarka.jpg"
+                    alt="Profil rasmi" />
+            </a>
+            <div class="title">
+                <span class="name">Bobur Nabiyev</span>
+                <span class="tag">Frontend Dasturchi • Portfolio</span>
+            </div>
+            <div class="spacer"></div>
+
+            <button class="contact-btn"  aria-haspopup="dialog" aria-controls="contactDrawer"
+                aria-expanded="false" onclick="window.location.href='tel:+998902006844'">
+                <span class="contact-dot" aria-hidden="true"></span>
+                <span style="color: white;">+(998) 90 200 68 44</span>
+            </button>
+
+          
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-card reveal">
+                <!-- Headerga yirik rasm (banner/cover) -->
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop"
+                    alt="Ish muhitidan foto" />
+                <div class="hero-body">
+                    <h1>Assalomu alaykum! Men — <span class="link-underline">Bobur</span>.</h1>
+                    <p>Men HTML, CSS va JavaScript yordamida zamonaviy, tez va qulay veb-saytlar yarataman. Oq–qora
+                        minimalizm, aniq tipografiya va mayin animatsiyalar — mening uslubim.</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <div class="card" style="margin-bottom:18px">
+                    <h3>Qisqacha men haqimda</h3>
+                    <p>3+ yil tajriba, landing va SPA loyihalar. Hozirda portfolioni kengaytirmoqdaman.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Ko'nikmalar</h3>
+                    <p>HTML5, CSS3 (Flex/Grid), JS (ES6+), Responsive, Accessibility (a11y), Git.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="reveal" aria-labelledby="works-title">
+            <h2 id="works-title">Loyihalar</h2>
+            <div class="cards">
+                <article class="card">
+                    <h3><a class="link-underline" href="#">Portfolio UI</a></h3>
+                    <p>Minimal, tez yuklanadigan landing sahifa.</p>
+                </article>
+                <article class="card">
+                    <h3><a class="link-underline" href="#">Admin panel</a></h3>
+                    <p>Toza dizayn, mobil-qurilmalarga mos, foydalanuvchi uchun qulay interfeys.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footerContainer">
+            <p>Ijtimoiy tarmoqlar:</p>
+            <div class="socials">
+                <a class="socials-link" target="_blank" href="https://www.instagram.com/b_nasimovich?igsh=MTlheXZscnVibTJmdQ%3D%3D&utm_source=qr">Instagram</a>
+                <a class="socials-link" target="_blank" href="https://t.me/@B_Nasimovich">Telegram</a>
+            </div>
+            <p class="end">© 2025 by bobur nasimovich</p>
+        </div>
+    </footer>
+
+    <script>
+      
+        // Scrollda elementlarni mayin ko'rinishga olib kirish
+        const observer = new IntersectionObserver((entries) => {
+            for (const entry of entries) {
+                if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+            }
+        }, { rootMargin: '0px 0px -10% 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // `prefers-reduced-motion` bo'lsa, animatsiyalarni o'chirish (ustunlik CSSda)
+        try {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+            }
+        } catch (_) { }
+    </script>
+</body>
+
+</html>
