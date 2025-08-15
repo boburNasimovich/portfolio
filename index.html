@@ -75,16 +75,7 @@
             padding: 14px 24px
         }
 
-        .avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, .08)
-        }
-
-        .title {
+               .title {
             display: flex;
             flex-direction: column
         }
@@ -101,6 +92,18 @@
 
         .spacer {
             flex: 1
+        }
+
+        @media(max-width: 640px) {
+            .contact-number {
+                font-size: smaller;
+            }
+        }
+
+        @media(max-width:640px) {
+            .contact-btn {
+                width: 170px;
+            }
         }
 
         .contact-btn {
@@ -131,6 +134,12 @@
             border-radius: 50%;
             background: var(--accent);
             box-shadow: 0 0 0 6px rgba(255, 255, 255, .08)
+        }
+
+        @media (min-width: 640px) {
+            .contact-dot {
+                border-radius: 50%;
+            }
         }
 
         /* Hero */
@@ -344,20 +353,20 @@
 <body>
     <header>
         <div class="header-inner container" role="navigation" aria-label="Sahifa bosh qismi">
-            
+
             <div class="title">
                 <span class="name">Bobur Nabiyev</span>
-                <span class="tag">Frontend Dasturchi • Portfolio</span>
+                <span class="tag">Frontend Dasturchi • </span>
             </div>
             <div class="spacer"></div>
 
-            <button class="contact-btn"  aria-haspopup="dialog" aria-controls="contactDrawer"
-                aria-expanded="false" onclick="window.location.href='tel:+998902006844'">
+            <button class="contact-btn" aria-haspopup="dialog" aria-controls="contactDrawer" aria-expanded="false"
+                onclick="window.location.href='tel:+998902006844'">
                 <span class="contact-dot" aria-hidden="true"></span>
-                <span style="color: white;">+(998) 90 200 68 44</span>
+                <span class="contact-number" style="color: white;">+(998) 90 200 68 44</span>
             </button>
 
-          
+
         </div>
     </header>
 
@@ -369,6 +378,7 @@
                     alt="Ish muhitidan foto" />
                 <div class="hero-body">
                     <h1>Assalomu alaykum! Men — <span class="link-underline">Bobur</span>.</h1>
+                    <p>Yoshim 18 da. Namangan Davlat Texnika Universitet talabasiman.</p>
                     <p>Men HTML, CSS va JavaScript yordamida zamonaviy, tez va qulay veb-saytlar yarataman. Oq–qora
                         minimalizm, aniq tipografiya va mayin animatsiyalar — mening uslubim.</p>
                 </div>
@@ -392,6 +402,7 @@
                 <article class="card">
                     <h3><a class="link-underline" href="#">Portfolio UI</a></h3>
                     <p>Minimal, tez yuklanadigan landing sahifa.</p>
+                    <a href="https://decors-nine.vercel.app" target="_blank">• Proekt 1</a>
                 </article>
                 <article class="card">
                     <h3><a class="link-underline" href="#">Admin panel</a></h3>
@@ -405,7 +416,8 @@
         <div class="footerContainer">
             <p>Ijtimoiy tarmoqlar:</p>
             <div class="socials">
-                <a class="socials-link" target="_blank" href="https://www.instagram.com/b_nasimovich?igsh=MTlheXZscnVibTJmdQ%3D%3D&utm_source=qr">Instagram</a>
+                <a class="socials-link" target="_blank"
+                    href="https://www.instagram.com/b_nasimovich?igsh=MTlheXZscnVibTJmdQ%3D%3D&utm_source=qr">Instagram</a>
                 <a class="socials-link" target="_blank" href="https://t.me/@B_Nasimovich">Telegram</a>
             </div>
             <p class="end">© 2025 by bobur nasimovich</p>
@@ -413,7 +425,7 @@
     </footer>
 
     <script>
-      
+
         // Scrollda elementlarni mayin ko'rinishga olib kirish
         const observer = new IntersectionObserver((entries) => {
             for (const entry of entries) {
