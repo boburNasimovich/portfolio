@@ -1,4 +1,3 @@
-
 :root {
     --bg: #0f0f10;
     --muted: #1a1a1c;
@@ -58,6 +57,7 @@ header {
 }
 
 .title {
+    position: relative;
     display: flex;
     flex-direction: column
 }
@@ -84,8 +84,34 @@ header {
 
 @media(max-width:640px) {
     .contact-btn {
-        width: 170px;
+        width: 140px;
     }
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.arrow {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-scroll {
+    position: absolute;
+    left: 20px;
+    top: 90px;
+    display: flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 10px 10px;
+    backdrop-filter: saturate(1.2) blur(6px);
+    background: linear-gradient(180deg, rgba(15, 15, 16, .85), rgba(15, 15, 16, .55));    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: var(--shadow);
+    transition: transform .25s ease, .25s ease, box-shadow .25s ease;
 }
 
 .contact-btn {
@@ -193,7 +219,7 @@ section {
     .hero {
         grid-template-columns: 1fr;
     }
-    
+
     .card {
         grid-column: span 12
     }
@@ -315,13 +341,13 @@ section {
     * {
         scroll-behavior: auto !important
     }
-    
+
     .contact-btn,
     .contact-list a,
     .reveal {
         transition: none
     }
-    
+
     .reveal {
         opacity: 1;
         transform: none
@@ -352,4 +378,15 @@ footer {
 .end {
     font-family: 'Courier New', Courier, monospace;
     padding-bottom: 40px;
+}
+
+#myIframe {
+    width: 100%;
+}
+
+@media (max-width: 640px) {
+    #myIframe {
+        width: 300px;
+        height: 200px;
+    }
 }

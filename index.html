@@ -22,12 +22,15 @@
                 <span class="tag">Frontend Dasturchi • </span>
             </div>
             <div class="spacer"></div>
-
-            <button class="contact-btn" aria-haspopup="dialog" aria-controls="contactDrawer" aria-expanded="false"
-                onclick="window.location.href='tel:+998200004489'">
-                <span class="contact-dot" aria-hidden="true"></span>
-                <span class="contact-number" style="color: white;">+(998) 20 000 44 89</span>
-            </button>
+                <div onclick="scrollToIframe()" class="contact-scroll" aria-haspopup="dialog"
+                    aria-controls="contactDrawer" aria-expanded="false">
+                    <span class="arrow" style="color: white;">↓</span>
+            </div>
+                <button class="contact-btn" aria-haspopup="dialog" aria-controls="contactDrawer" aria-expanded="false"
+                    onclick="window.location.href='tel:+998200004489'">
+                    <span class="contact-number" style="color: white;">+(998) 20 000 44 89</span>
+                </button>
+            </div>
 
 
         </div>
@@ -77,17 +80,33 @@
 
     <footer>
         <div class="footerContainer">
-            <p>Ijtimoiy tarmoqlar:</p>
-            <div class="socials">
-                <a class="socials-link" target="_blank"
-                    href="https://www.instagram.com/b_nasimovich?igsh=MTlheXZscnVibTJmdQ%3D%3D&utm_source=qr">Instagram</a>
-                <a class="socials-link" target="_blank" href="https://t.me/@B_Nasimovich">Telegram</a>
+            <div class="fc2">
+                <p>Ijtimoiy tarmoqlar:</p>
+                <div class="socials">
+                    <a class="socials-link" target="_blank"
+                        href="https://www.instagram.com/_?igsh=MTlheXZscnVibTJmdQ%3D%3D&utm_source=qr"><img
+                            src="/img/icons8-instagram.svg" alt="logo insta"></a>
+                    <a class="socials-link" target="_blank" href="https://t.me/@nsmvch"><img
+                            src="/img/icons8-telegram-logo.svg" width="94px" height="94px" alt="logo tg"></a>
+                </div>
             </div>
+            <h2>Bizning manzil</h2>
+            <iframe id="myIframe"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10147.579328799942!2d71.96544274484863!3d40.87421388262051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1755795631457!5m2!1sru!2s"
+                width="1040" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
             <p class="end">© 2025 by bobur nasimovich</p>
         </div>
     </footer>
 
     <script>
+        function scrollToIframe() {
+            document.getElementById("myIframe").scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        };
         const observer = new IntersectionObserver((entries) => {
             for (const entry of entries) {
                 if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
