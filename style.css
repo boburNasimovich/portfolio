@@ -36,8 +36,6 @@ img {
 
 /* Wrapper */
 .container {
-    display: flex;
-    justify-content: space-between;
     max-width: 1080px;
     margin: 0 auto;
     padding: 24px
@@ -57,7 +55,8 @@ header {
     display: flex;
     align-items: center;
     gap: 18px;
-    padding: 14px 24px
+    padding: 14px 24px;
+    justify-content: space-between;
 }
 
 .title {
