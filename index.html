@@ -47,7 +47,15 @@
             <h3>News 📰</h3>
             <p>Background of my new instagram video</p>
             <!-- bu yerga video qoyaman -->
-             <video src="./videos/RT7pPqxXMlPSQRE8ZZ0t+dekq82JZPPg.mp4" style="width: 100%;height: auto; padding-top: 10px;" controls></video>
+            <div class="video-box">
+                <video src="./videos/RT7pPqxXMlPSQRE8ZZ0t+dekq82JZPPg.mp4"
+                    style="width: 100%; height: auto; padding-top: 10px; padding-bottom: 10px;" controls>
+                </video>
+
+                <a id="downloadbtn" href="./videos/RT7pPqxXMlPSQRE8ZZ0t+dekq82JZPPg.mp4" download="videofoni(@_nsmvc).mp4" class="download-btn">
+                    <i class="fa-solid fa-download">Download</i>
+                </a>
+            </div>
         </div>
         <section class="hero">
             <div class="hero-card reveal">
@@ -58,8 +66,8 @@
                     <p>I specialize in building modern, fast, and user-friendly websites with HTML, CSS, and JavaScript.
                         My design approach emphasizes clean black-and-white minimalism, strong typography, and subtle,
                         refined animations.</p>
-                    </div>
                 </div>
+            </div>
             <div class="reveal">
                 <div class="card" style="margin-bottom:18px">
                     <h3>About me</h3>
@@ -148,6 +156,9 @@
                 block: "center"
             });
         };
+        if (downloadbtn) {
+            downloadbtn.addEventListener('click', () => alert('Video yuklanmoqda... obuna bo`ling!'));
+        }
         const observer = new IntersectionObserver((entries) => {
             for (const entry of entries) {
                 if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
